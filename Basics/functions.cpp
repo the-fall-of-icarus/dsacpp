@@ -42,6 +42,30 @@ int fibo(int n){
     return b;
 }
 
+bool powerOfTwo(int num){
+    if(num>=0){
+        while (num>1){
+            if(num%2 != 0) return false;
+            num /= 2;
+            }
+        return true;
+        }
+}
+
+bool isPowerOfTwo(int n){
+    return ((n!=0) && ((n & (n-1))==0));
+}
+
+int reverse(int n){
+    int rev = 0;
+    while (n != 0) {
+        int digit=n%10;
+        rev=rev*10 + digit;
+        n/=10;
+    }
+    return rev;
+}
+
 int main(){
     /*
     string name;
@@ -61,9 +85,18 @@ int main(){
     cout << maximum;
     */
 
-    cout << "The number is prime: " << isPrime(47) < endl;
+    cout << "The number is prime: " << isPrime(47) << endl;
     printPrime(30);
     cout << endl;
     cout << "10th number in the fibonacci series is: " << fibo(10) << endl;
+    
+    int a=128, b=200;
+    cout << "Power of two without loop: " << endl;
+    cout << isPowerOfTwo(a) << endl << isPowerOfTwo(b) << endl;
+    cout << endl;
+    cout << "power of two with loop: " << endl;
+    cout << powerOfTwo(a) << endl << powerOfTwo(b) << endl;
+    cout << "The reverse of number " << a << " is: " << reverse(a);
+
     return 0;
 }
